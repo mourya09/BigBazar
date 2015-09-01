@@ -3,18 +3,18 @@
  */
 package com.bigbazar.persistent;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import com.vividsolutions.jts.geom.Geometry;
@@ -35,8 +35,12 @@ import com.vividsolutions.jts.geom.Geometry;
         pkColumnValue="USER_MAPPED_LOCATION_SEQ",
         allocationSize=1
 )*/
-public class UserMappedLocation {
+public class UserMappedLocation implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6832984575748042483L;
 	private Long mappedUserId; // this is MUI for any mobile number.	
 	private Geometry geometry;
 	private Long mobileNumber;
@@ -44,8 +48,10 @@ public class UserMappedLocation {
 	private String emailId;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_MAPPED_LOCATION_SEQ")
-    @SequenceGenerator(name="USER_MAPPED_LOCATION_SEQ", sequenceName="USER_MAPPED_LOCATION_SEQ", allocationSize=1)
+/*	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_MAPPED_LOCATION_SEQ")
+    @SequenceGenerator(name="USER_MAPPED_LOCATION_SEQ", sequenceName="USER_MAPPED_LOCATION_SEQ", allocationSize=1)*/
+	 @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
 	@Column(name="USER_MAPPED_ID")
 	public Long getMappedUserId() {
 		return mappedUserId;

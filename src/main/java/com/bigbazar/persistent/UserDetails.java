@@ -12,14 +12,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+
 
 /**
  * @author NEX6UYU
@@ -57,9 +59,11 @@ public class UserDetails  implements Serializable {
 	private Set<UserMappedLocation> userLocations = new HashSet<UserMappedLocation>();
 	
 	@Id
-	/*@GeneratedValue(strategy=GenerationType.IDENTITY, generator="SEQ_GEN_TAB")*/
+	/*@GeneratedValue(strategy=GenerationType.IDENTITY, generator="SEQ_GEN_TAB")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_DETAIL_SEQ")
-    @SequenceGenerator(name="USER_DETAIL_SEQ", sequenceName="USER_DETAIL_SEQ", allocationSize=1)
+    @SequenceGenerator(name="USER_DETAIL_SEQ", sequenceName="USER_DETAIL_SEQ", allocationSize=1)*/
+	 @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
 	@Column(name="ID")
 	public Long getId() {
 		return id;

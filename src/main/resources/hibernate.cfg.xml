@@ -10,10 +10,10 @@
         <property name="hibernate.dialect">org.hibernate.spatial.dialect.postgis.PostgisDialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://152.144.227.172:5432/gisdb</property>
-        <property name="hibernate.connection.username">gisdb_user</property>
+        <property name="hibernate.connection.username">regina</property>
         <property name="hibernate.connection.password">mourya09</property>
         <!-- @see: http://community.jboss.org/wiki/HibernateCoreMigrationGuide36 -->
-        <property name="hibernate.jdbc.use_streams_for_binary">false</property>
+        <property name="hibernate.jdbc.use_streams_for_binary">true</property>
         <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>

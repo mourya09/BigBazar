@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * @author NEX6UYU
  *
@@ -48,8 +50,10 @@ public class UserAddresses implements Serializable {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_ADDR_SEQ")
-    @SequenceGenerator(name="USER_ADDR_SEQ", sequenceName="USER_ADDR_SEQ", allocationSize=1)
+	/*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_ADDR_SEQ")
+    @SequenceGenerator(name="USER_ADDR_SEQ", sequenceName="USER_ADDR_SEQ", allocationSize=1)*/
+	 @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
 	@Column(name="ID")
 	public Long getID() {
 		return ID;
