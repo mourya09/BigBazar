@@ -10,6 +10,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,15 +30,28 @@ public class BigBazarDaoImpl implements BigBazarDao {
 	
 
 	public void save(Object entity) throws IllegalArgumentException {
-		sessionFactory.openSession().save(entity);
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(entity);
+		tx.commit();
+		session.close();
 	}
 
 	public void update(Object entity) throws IllegalArgumentException {
-		sessionFactory.openSession().update(entity);
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(entity);
+		tx.commit();
+		session.close();		
 	}
 
 	public void delete(Object entity) throws IllegalArgumentException {
-		sessionFactory.openSession().delete(entity);
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.delete(entity);
+		tx.commit();
+		session.close();
+		
 		
 	}
 
