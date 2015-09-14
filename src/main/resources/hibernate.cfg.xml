@@ -9,8 +9,8 @@
  <!-- connection details -->
         <property name="hibernate.dialect">org.hibernate.spatial.dialect.postgis.PostgisDialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://152.144.227.172:5432/gisdb</property>
-        <property name="hibernate.connection.username">regina</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">mourya09</property>
         <!-- @see: http://community.jboss.org/wiki/HibernateCoreMigrationGuide36 -->
         <property name="hibernate.jdbc.use_streams_for_binary">true</property>
