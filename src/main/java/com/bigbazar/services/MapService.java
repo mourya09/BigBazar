@@ -17,7 +17,10 @@ public interface MapService {
 	 * */
 	public Long storeCustomerMUI(Point point);
 	
-	
+	public default Boolean storeBranchLocation(Point point)
+	{
+		return false;
+	}
 	
 
 }

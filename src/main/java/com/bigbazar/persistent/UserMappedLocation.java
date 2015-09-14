@@ -27,14 +27,7 @@ import com.vividsolutions.jts.geom.Geometry;
  */
 @Entity
 @Table(name= "USER_MAPPED_LOCATION")
-/*@javax.persistence.TableGenerator(
-        name="SEQ_GEN_TAB",
-        table="SEQUENCE",
-        pkColumnName = "SEQ_NAME",
-        valueColumnName = "SEQ_COUNT",
-        pkColumnValue="USER_MAPPED_LOCATION_SEQ",
-        allocationSize=1
-)*/
+
 public class UserMappedLocation implements Serializable {
 	
 	/**
@@ -46,6 +39,7 @@ public class UserMappedLocation implements Serializable {
 	private Long mobileNumber;
 	private Set<UserDetails> userId=new HashSet<UserDetails>();
 	private String emailId;
+	private String userIPAddress;
 	
 	@Id
 /*	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_MAPPED_LOCATION_SEQ")
@@ -77,6 +71,16 @@ public class UserMappedLocation implements Serializable {
 	@Type(type="org.hibernate.spatial.GeometryType")
 	public Geometry getGeometry() {
 		return geometry;
+	}
+
+	@Column(name="IP_ADDRESS")
+	public String getUserIPAddress() {
+		return userIPAddress;
+	}
+
+	
+	public void setUserIPAddress(String userIPAddress) {
+		this.userIPAddress = userIPAddress;
 	}
 
 

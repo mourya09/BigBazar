@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 	<!-- Specifying the Versions of Spring, Hiberante, postgresql etc -->
 	<properties>
-		<spring.version>4.1.4.RELEASE</spring.version>
+		<spring.version>4.2.1.RELEASE</spring.version>
 		<hibernate.version>4.0.0.Final</hibernate.version>
 		<!-- <postgresql.version>9.4-1201-jdbc4</postgresql.version> -->
 		<postgresql.version>8.4-701.jdbc4</postgresql.version>
@@ -110,6 +110,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet-api-version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
